@@ -1,11 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-x,y,z= np.loadtxt("data.txt", unpack=True)
+h,Ef,Ec= np.loadtxt("data.txt", unpack=True)
 
-plt.plot(x,y,'-o', label="data1" )
-plt.plot(x,z,'-o', label="data2" )
+plt.plot(h,Ef,'-o', label="forward error" )
+plt.plot(h,Ec,'-o', label="central error" )
 plt.xscale("log")
 plt.yscale("log")
+plt.xlabel("h")
+plt.ylabel("perc. error")
 plt.legend()
-plt.show()
+#plt.show()
+plt.savefig("perc_error_graph.pdf")
